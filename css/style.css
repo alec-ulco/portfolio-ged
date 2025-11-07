@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Kastroz';
+    src: url(font/Kastroz-0v5G9.otf);
+}
+
+@keyframes ember-animation {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes saut {
+    50% {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    position: relative;
+    background: black;
+    overflow: hidden;
+}
+
+header .conteneur-titre {
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.5)0%, rgba(255, 69, 0, 0)50%);
+    animation: ember-animation 2s infinite linear;
+    z-index: 0;
+}
+
+header h1 {
+    z-index: 1;
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Kastroz';
+    font-size: 3em;
+    background: linear-gradient(to right, #d3d3d3, #e6e6e6, #c0bfbf);
+    background-clip: text;
+    color: transparent;
+    Text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+}
+
+.navi {
+    text-align: center;
+    word-spacing: 200px;
+    display: flex;
+    justify-content: center;
+    list-style: "";
+}
+
+.lien:hover {
+    animation: saut 2s infinite linear;
+}
+
+.lien a {
+    text-decoration: none;
+    font-size: xx-large;
+    font-family: 'Kastroz';
+    font-size: 2em;
+    background: linear-gradient(to right, #ffd700, #ffb900, #ff8c00);
+    background-clip: text;
+    background-size: 200% 200%;
+    color: transparent;
+    Text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+
+}
+
+.lien {
+    z-index: 1;
+    margin: 0 15px;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-image: url(images/bglloyd.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #701a1acc;
+    filter: blur(6px);
+    margin: 0;
+}
+
+footer {
+    background-color: transparent;
+}
+
+figcaption {
+    display: none;
+}
