@@ -1,0 +1,130 @@
+.projets {
+    list-style: none;
+    /* retire les puces de la liste */
+    margin: 0;
+    /* annule la marge par défaut */
+    padding: 0;
+    /* annule le padding par défaut */
+    display: flex;
+    /* utilise une grille pour disposer les vignettes */
+    flex-wrap: wrap;
+    gap: 1px;
+    /* espace entre les cartes */
+}
+
+.projets li {
+    display: grid;
+    /* grille interne pour image et texte */
+    grid-template-areas: "fig h3" "fig p";
+    grid-column: 2 hidden;
+    grid-template-columns: 300px 25%;
+    /* image à gauche (300px), texte à droite */
+    align-items: start;
+    /* aligne le contenu en haut */
+    gap: 10px;
+    /* espace entre image et texte */
+    background: transparent;
+    /* pas de fond ajouté */
+    border-radius: 6px;
+    /* léger arrondi visuel si souhaité */
+    overflow: hidden;
+    /* masque ce qui dépasse pour superposition */
+    padding: 0.25rem;
+    /* petit espacement interne */
+    position: relative;
+    /* nécessaire pour le positionnement absolu des éléments superposés */
+}
+
+.projets li figure {
+    margin: 0;
+    grid-area: fig;
+    /* annule la marge par défaut de la figure */
+}
+
+.projets li img {
+    width: 100%;
+    /* remplit la colonne image */
+    height: 100%;
+    /* hauteur fixe */
+    max-height: 500px;
+    /* limite cohérente pour garder un aspect uniforme */
+    object-fit: contain;
+    /* recadre proprement l'image */
+    display: block;
+    /* évite espace blanc sous l'image */
+    border-radius: 4px;
+    /* arrondit légèrement l'image */
+
+}
+
+/* Titre à droite de l'image */
+.projets li h3 {
+    margin: 0;
+    /* annule marges par défaut */
+    grid-column: 2;
+    /* place le titre dans la colonne de droite */
+    align-self: start;
+    /* aligne le titre en haut de la colonne */
+    font-size: 1.05rem;
+    /* taille lisible du titre */
+    padding: 0;
+    background: transparent;
+    grid-area: h3;
+}
+
+.projets li h3,
+.projets li p,
+.projets li figcaption {
+    display: none;
+    /* cachés par défaut */
+    position: absolute;
+    /* se positionnent sur la colonne 1 (image) */
+    top: 0;
+    left: 300px;
+    /* aligned avec le début de la colonne 1 */
+    right: 0;
+    /* occupe la largeur restante */
+    background: transparent;
+    /* fond semi-transparent */
+    padding: 0.5rem;
+    /* espace interne */
+    z-index: -4;
+    /* au-dessous de l'image */
+    max-height: 100%;
+}
+
+.projets li:hover h3,
+.projets li:hover p {
+    display: block;
+    /* révèle les éléments au hover */
+    position: relative;
+    z-index: auto;
+    left: auto;
+    right: auto;
+}
+
+.projets li:hover {
+    background: rgb(0, 255, 242);
+}
+
+.projets li:hover p {
+    width: 400px;
+}
+
+/* Texte descriptif à droite de l'image */
+.projets li p {
+    margin: 0;
+    /* supprime l'espace entre le titre et le paragraphe */
+    grid-column: 2;
+    /* place le paragraphe dans la colonne de droite */
+    color: #222;
+    /* couleur du texte (ajustable) */
+    line-height: 1.4;
+    /* lisibilité */
+    max-height: 220px;
+    /* limite la hauteur du texte pour ne pas dépasser la hauteur de l'image */
+    overflow: auto;
+    /* permet le scroll si le texte est plus long */
+    background: transparent;
+    grid-area: p;
+}
