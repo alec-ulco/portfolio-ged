@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header id="top">
+    <header id="top" role="banner" aria-labelledby="titre-site">
         <h1 class="conteneur-titre">
             Lloyd Frontera alias Kim Suho
         </h1>
@@ -27,95 +27,84 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
+    <main role="main">
+        <section class="photo" role="region" aria-labelledby="titre-a-propos">
+            <figure class="pid" role="img" aria-labelledby="Portrait de Kim Suho">
+                <img src="images/vignettes/kimsuho.jpeg" alt="Portrait de Kim Suho">
+                <figcaption>Kim Suho</figcaption>
+            </figure>
+            <figure class="pid" role="img" aria-labelledby="Portrait de lloyd">
+                <img src="images/vignettes/lloyd.jpeg" alt="Portrait de lloyd">
+                <figcaption>LLoyd</figcaption>
+            </figure>
+        </section>
+        <section class="a-propos" role="region" aria-labelledby="titre-a-propos">
+
+
+            <h2 id="titre-a-propos">À propos</h2>
+            <p>
+                Kim Suho, étudiant en génie civil passionné et travailleur, a consacré sa vie à sortir de la pauvreté en
+                poursuivant ses études et en s'investissant dans la recherche sur la construction traditionnelle. Calme,
+                persévérant et réservé, il a toujours rêvé d'améliorer le monde grâce à ses connaissances techniques.
+            </p>
+            <p>
+                Transporté dans un autre monde sous l'identité de Lloyd Frontera, il utilise son esprit logique, sa
+                créativité et sa détermination pour résoudre les problèmes structurels, économiques et humains qui
+                l'entourent.
+            </p>
+        </section>
+
+
+        <section class="experiences" role="region" aria-labelledby="titre-experiences">
+            <h2 id="titre-experiences">Expériences</h2>
+            <article role="article" aria-labelledby="exp1">
+                <h3 id="exp1">Gestion et rénovation de domaines</h3>
+                <p>
+                    Optimisation des infrastructures du territoire Frontera, amélioration des routes, gestion des
+                    ressources et développement d'installations essentielles répondant aux besoins des habitants.
+                </p>
+            </article>
+            <article role="article" aria-labelledby="exp2">
+                <h3 id="exp2">Conception structurelle</h3>
+                <p>
+                    Utilisation de principes scientifiques et d'ingénierie moderne pour résoudre des problèmes complexes
+                    dans un monde médiéval-fantastique.
+                </p>
+            </article>
+            <article role="article" aria-labelledby="exp3">
+                <h3 id="exp3">Leadership et gestion d'équipes</h3>
+                <p>
+                    Coordination de travailleurs, planification de projets et création d'un environnement efficace
+                    mettant en valeur les compétences de chacun.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="competences" role="region" aria-labelledby="titre-competences">
+            <h2 id="titre-competences">Compétences</h2>
             <ul>
-                <li>
-                    <section id="The-Greatest-Estate-Developer" role="region"
-                        aria-labelledby="présentation-The-Greatest-Estate-Developer">
-                        <h2 class="" id="présentation-The-Greatest-Estate-Developer">présentation de Lhistoire de The
-                            Greatest Estate Developer</h2>
-                        <p>
-                            Suho Kim, un étudiant fauché qui peine à joindre les deux bouts, cherche désespérément à
-                            changer de vie en obtenant un diplôme d'ingénieur civil.
-                            Mais passer de la misère à la richesse sera plus facile à dire qu'à faire,
-                            surtout après que Suho se soit soudainement réveillé dans le roman fantastique qu'il lisait
-                            tous les soirs,
-                            incarnant Lloyd Frontera, l'un des pires personnages secondaires.
-                            Lloyd est un ivrogne paresseux et impétueux dont la famille est au bord de la ruine à cause
-                            d'une dette colossale.
-                            Lloyd n'est peut-être pas l'homme le plus fiable, mais Suho n'est pas prêt à abandonner si
-                            facilement ; il refuse de retomber dans la pauvreté.
-                            Heureusement pour la famille Frontera, Suho a un atout qui pourrait mettre fin à leurs
-                            difficultés financières : ses études d'ingénieur civil !
-                            Avec le cœur d'un entrepreneur et l'intelligence d'un ingénieur,Suho pourra-t-il enfin se
-                            construire une vie meilleure ?
-                        </p>
-                    </section>
-                </li>
-                <h1 class="texte">
-                </h1>
-                <li>
-                    <section id="kim-suho" role="region" aria-labelledby="présentation-Kim-Suho">
-                        <h2 class="" id="présentation-Kim-Suho">présentation de Kim Suho</h2>
-                        <figure><img src="images/vignettes/kimsuho.jpeg" alt="portrait-Kim-Suho">
-                            <figcaption id="fig-KimSuho">Portrait kim suho</figcaption>
-                        </figure>
-                        <p>
-                            Lorsqu'il vivait en Corée du Sud, Suho semblait plutôt calme, travailleur et peu
-                            conflictuel.
-                            Il a étudié avec assiduité pour obtenir une bourse d'études en génie civil et a rejoint le
-                            Club de recherche sur la construction traditionnelle, désireux d'apprendre tout ce qu'il
-                            pouvait.
-                            Conscient que les gens se moquaient de lui et l'insultaient dans son dos à cause de sa
-                            situation, il n'a jamais rien répondu et s'est contenté d'écouter leurs paroles en silence,
-                            dans l'espoir de sortir un jour de la pauvreté.
-                            Ce genre de traitement l'a conduit à rejeter catégoriquement la compagnie et ses valeurs, la
-                            considérant comme une source d'exploitation.
-                            Malgré cela, Suho conserve une certaine sensibilité dans certains domaines, comme sa
-                            famille, car il a dû perdre ses deux parents et son chien sans pouvoir lui dire au revoir.
-                            Il éprouve un profond sentiment de culpabilité de n'avoir pas pu soutenir son père pendant
-                            ses difficultés financières et de ne pas avoir traité son chien avec suffisamment d'amour
-                            avant son décès.
-                        </p>
-                    </section>
-                </li>
-                <li>
-                    <section id="lloyd-frontera" role="region" aria-labelledby="présentation-lloyd-frontera">
-                        <h2 class="" id="présentation-lloyd-frontera">présentation de lloyd frontera(Kim Suho)</h2>
-                        <figure>
-                            <img src="images/vignettes/lloyd.jpeg" alt="Portrait-lloyd">
-                            <figcaption id="fig-lloyd">portrait lloyd</figcaption>
-                        </figure>
-                        <p>
-                            Après avoir été transporté dans le corps de Lloyd Frontera, Suho hésite d'abord sur la
-                            conduite à tenir avant de trouver un juste milieu entre ses propres vertus et la vie
-                            antérieure de Lloyd.
-                            Débrouillard et spirituel, Suho apprend rapidement à exploiter la réputation de voyou du
-                            noble pour menacer et s'imposer des situations favorables, tant pour lui que pour son
-                            entourage.
-                            Cet aspect particulier de sa personnalité n'a fait que s'accentuer avec le temps, confinant
-                            parfois au sadisme par le traitement cruel et impitoyable qu'il inflige à ceux qui lui ont
-                            fait du tort, à lui ou à ses proches.
-                            Une partie de cette arrogance provient probablement du sentiment d'impuissance qu'il a
-                            éprouvé dans sa vie antérieure, considérant cette situation comme une seconde chance et
-                            déterminé à ne pas la laisser filer.
-                            Il se soucie profondément du bien-être de sa famille, de ses amis et de ses employés,
-                            prêtant une attention particulière aux difficultés des premiers et garantissant une
-                            rémunération adéquate aux seconds.
-                            Il dissimule cela derrière une apparence prétentieuse, parfois arrogante, qui exaspère
-                            souvent son entourage, même si cela ne l'empêche pas d'avoir une confiance absolue en ses
-                            capacités.
-                            On a vu Suho s'énerver face à ce genre d'éloges, criant souvent à des foules de civils
-                            reconnaissants d'arrêter et de retourner au travail pour masquer son embarras.
-                        </p>
-                    </section>
-                </li>
+                <li>Analyse et résolution de problèmes</li>
+                <li>Ingénierie civile (fondations, structures, matériaux)</li>
+                <li>Planification et gestion de projets</li>
+                <li>Communication et négociation</li>
+                <li>Adaptabilité et prise de décision</li>
+            </ul>
+        </section>
+
+
+        <section class="diplomes" role="region" aria-labelledby="titre-diplomes">
+            <h2 id="titre-diplomes">Diplômes</h2>
+            <ul>
+                <li>diplomes d'ingéniereur en génie civil — Université en Corée du Sud</li>
+                <li>Membre du Club de recherche sur la construction traditionnelle</li>
             </ul>
         </section>
     </main>
     <footer>
-        <br><a href="#top">va la-haut</a>
+        <section class="conteneur-footer">
+            <a class="top" href="#top">Revenir au sommet</a>
+        </section>
     </footer>
 </body>
 

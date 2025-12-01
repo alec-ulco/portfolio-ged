@@ -2,6 +2,42 @@ img {
     border-radius: 50%;
 }
 
+/* Les deux images côte à côte */
+.photo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Style des figures individuelles */
+.pid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    /* Ajustez selon vos besoins */
+}
+
+.pid figcaption {
+    display: none;
+}
+
+.pid img {
+    display: block;
+    width: 10vw;
+    height: 15vw;
+    border: 12px solid #d4c19c;
+    /* couleur cadre bois clair */
+    box-shadow: 0 0 0 4px #8a6f4d,
+        /* bord intérieur plus foncé */
+        0 8px 20px rgba(0, 0, 0, 0.3);
+    /* ombre pour effet tableau */
+    border-radius: 4px;
+    /* léger arrondi comme un cadre */
+}
+
 ul {
     list-style-type: "";
 }

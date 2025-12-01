@@ -1,3 +1,91 @@
+@font-face {
+    font-family: 'Kastroz';
+    src: url(font/Kastroz-0v5G9.otf);
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes apparition {
+    0% {
+        opacity: 0.0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.50;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes constructTitle {
+    0% {
+        color: transparent;
+        -webkit-text-stroke: 1.5px #a0a0a0;
+        filter: brightness(0.8);
+    }
+
+    50% {
+        color: transparent;
+        -webkit-text-stroke: 1.5px #d4af37;
+        filter: brightness(1);
+    }
+
+    100% {
+        color: #f4e4c1;
+        -webkit-text-stroke: 1px #8b7355;
+        text-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.6),
+            0 0 15px rgba(244, 228, 193, 0.3);
+
+    }
+}
+
+.projets {
+    animation: apparition 1.5s ease-out;
+}
+
+main h1,
+main h2 {
+    font-family: 'Kastroz';
+    /* Change la police pour tous les titres du main */
+}
+
+main h1 {
+    font-size: 4.5rem;
+    text-align: center;
+    margin: 2vw 0 3vw 0;
+    letter-spacing: 2px;
+    color: transparent;
+    /* Le remplissage est transparent au départ */
+    -webkit-text-stroke: 1.5px #a0a0a0;
+    /* Contour gris */
+    text-shadow: none;
+    /* Pas d'ombre pour l'instant */
+
+    /* 2. L'animation de construction */
+    animation: constructTitle 2.5s ease-out forwards;
+}
+
 .projets {
     list-style: none;
     /* retire les puces de la liste */
@@ -5,126 +93,203 @@
     /* annule la marge par défaut */
     padding: 0;
     /* annule le padding par défaut */
-    display: flex;
+    display: grid;
     /* utilise une grille pour disposer les vignettes */
-    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 éléments par ligne par défaut */
     gap: 1px;
     /* espace entre les cartes */
+    align-items: start;
 }
 
-.projets li {
+
+.elem {
     display: grid;
     /* grille interne pour image et texte */
-    grid-template-areas: "fig h3" "fig p";
-    grid-column: 2 hidden;
-    grid-template-columns: 300px 25%;
-    /* image à gauche (300px), texte à droite */
+    grid-template-areas: "fig h2" "fig p";
+    grid-template-columns: 15vw 1fr;
+    /* image à gauche (15vw), texte à droite flexible */
     align-items: start;
     /* aligne le contenu en haut */
     gap: 10px;
     /* espace entre image et texte */
     background: transparent;
     /* pas de fond ajouté */
-    border-radius: 6px;
-    /* léger arrondi visuel si souhaité */
-    overflow: hidden;
-    /* masque ce qui dépasse pour superposition */
-    padding: 0.25rem;
+    padding: 4px;
     /* petit espacement interne */
     position: relative;
     /* nécessaire pour le positionnement absolu des éléments superposés */
+    align-self: start;
+    margin-right: 10%;
+    /* 10% de marge à droite */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    ;
 }
 
-.projets li figure {
+.elem figure {
     margin: 0;
     grid-area: fig;
     /* annule la marge par défaut de la figure */
+    z-index: 1;
 }
 
-.projets li img {
+.elem img {
     width: 100%;
     /* remplit la colonne image */
-    height: 100%;
-    /* hauteur fixe */
-    max-height: 500px;
-    /* limite cohérente pour garder un aspect uniforme */
+    height: auto;
+    /* hauteur automatique */
+    max-height: 25vw;
+    /* limite cohérente */
     object-fit: contain;
     /* recadre proprement l'image */
     display: block;
     /* évite espace blanc sous l'image */
     border-radius: 4px;
     /* arrondit légèrement l'image */
-
 }
 
 /* Titre à droite de l'image */
-.projets li h3 {
+.elem h2 {
     margin: 0;
     /* annule marges par défaut */
     grid-column: 2;
     /* place le titre dans la colonne de droite */
     align-self: start;
     /* aligne le titre en haut de la colonne */
-    font-size: 1.05rem;
-    /* taille lisible du titre */
+    font-size: 2em;
+    /* taille du titre relative au carré */
     padding: 0;
     background: transparent;
-    grid-area: h3;
+    grid-area: h2;
+
 }
 
-.projets li h3,
-.projets li p,
-.projets li figcaption {
+.elem h2 a {
+    text-decoration: none;
+    color: #f4e4c1;
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(244, 228, 193, 0.3);
+}
+
+.elem h2,
+.elem p,
+.elem figcaption {
     display: none;
     /* cachés par défaut */
     position: absolute;
     /* se positionnent sur la colonne 1 (image) */
     top: 0;
-    left: 300px;
+    left: 15vw;
     /* aligned avec le début de la colonne 1 */
     right: 0;
     /* occupe la largeur restante */
     background: transparent;
     /* fond semi-transparent */
-    padding: 0.5rem;
+    padding: 8px;
     /* espace interne */
     z-index: -4;
     /* au-dessous de l'image */
     max-height: 100%;
 }
 
-.projets li:hover h3,
-.projets li:hover p {
+.elem:hover h2,
+.elem:hover p {
     display: block;
     /* révèle les éléments au hover */
+
     position: relative;
-    z-index: auto;
+    z-index: 2;
     left: auto;
     right: auto;
+    opacity: 0;
+    animation: fade-in-up 1s ease-in;
+    animation-fill-mode: both;
+    animation-range: entry 20% cover 40%;
+
 }
 
-.projets li:hover {
-    background: rgb(0, 255, 242);
+.elem::before {
+    content: '';
+    /* Obligatoire pour que le pseudo-élément existe */
+    position: absolute;
+    /* Se positionne par rapport à .elem */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #701a1acc;
+    /* Votre couleur de fond */
+    border-radius: 6px;
+    z-index: 1;
+    /* Se place derrière le contenu mais devant le fond de .elem */
+    opacity: 0;
+    /* Invisible par défaut */
+    transform: scaleX(0);
+    /* Réduit à 0 sur l'axe X pour l'effet d'ouverture */
+    transform-origin: left center;
+    /* L'animation part de la gauche */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* Animation fluide */
 }
 
-.projets li:hover p {
-    width: 400px;
+.elem:hover::before {
+    opacity: 1;
+    /* Le fond devient visible */
+    transform: scaleX(1);
+    /* Le fond s'ouvre à sa taille normale */
+}
+
+.projets:has(.elem:hover) {
+    margin-right: 0;
+    /* retire la marge quand un élément est survolé */
+}
+
+.elem:hover p {
+    width: 18vw;
+    /* largeur du texte au hover (un peu plus grand que l'image 15vw) */
+    max-height: 25vw;
+    /* hauteur proportionnelle au carré */
 }
 
 /* Texte descriptif à droite de l'image */
-.projets li p {
+.elem p {
     margin: 0;
     /* supprime l'espace entre le titre et le paragraphe */
     grid-column: 2;
     /* place le paragraphe dans la colonne de droite */
-    color: #222;
+    color: #ffffff;
     /* couleur du texte (ajustable) */
     line-height: 1.4;
     /* lisibilité */
-    max-height: 220px;
-    /* limite la hauteur du texte pour ne pas dépasser la hauteur de l'image */
+    font-size: 1em;
+    /* taille du texte relative au carré */
+    max-height: 20vw;
+    /* limite la hauteur du texte au carré */
     overflow: auto;
     /* permet le scroll si le texte est plus long */
     background: transparent;
     grid-area: p;
+}
+
+/* Media queries pour adapter le nombre d'éléments par ligne */
+@media (max-width: 1400px) {
+    .projets {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 éléments par ligne */
+    }
+}
+
+@media (max-width: 1000px) {
+    .projets {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 éléments par ligne */
+    }
+}
+
+@media (max-width: 600px) {
+    .projets {
+        grid-template-columns: 1fr;
+        /* 1 élément par ligne */
+    }
 }
