@@ -104,9 +104,9 @@ h2 {
 
 .selec li h3 {
     font-family: var(--fontitre);
-    color: #b19f79;
+    color: var(--coltitresec);
     text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
-    margin: 0 0
+    margin: 0 0;
 }
 
 .pres p,
@@ -131,107 +131,3 @@ h2 {
 }
 
 /* ==================== MEDIA QUERIES ==================== */
-
-/* Tablettes (1024px et moins) */
-@media (max-width: 1024px) {
-    .photo {
-        gap: 1.5vw;
-    }
-
-    .pid {
-        width: 14vw;
-    }
-
-    h2 {
-        font-size: 2.8vw;
-    }
-
-    .selec li h3 {
-        margin: 0 0;
-    }
-
-    .pres p,
-    .pres li {
-        font-size: 1.8vw;
-    }
-
-    .pres {
-        padding: 2.5vw;
-        margin: 1.5vw 0;
-    }
-}
-
-/* Tablettes (768px à 1024px) */
-@media (max-width: 768px) {
-    .photo {
-        gap: 1.5vw;
-    }
-
-    .pid {
-        width: 16vw;
-    }
-
-    h2 {
-        font-size: 2.8vw;
-    }
-
-    .pres p,
-    .pres li {
-        font-size: 1.9vw;
-    }
-
-    .pres {
-        padding: 2vw;
-        margin: 1.2vw 0;
-    }
-}
-
-/* Petits écrans (600px à 768px) */
-@media (max-width: 600px) {
-    .photo {
-        gap: 1.3vw;
-    }
-
-    .pid {
-        width: 18vw;
-    }
-
-    h2 {
-        font-size: 2.8vw;
-    }
-
-    .pres p,
-    .pres li {
-        font-size: 2vw;
-    }
-
-    .pres {
-        padding: 1.5vw;
-        margin: 1vw 0;
-    }
-}
-
-/* Très petits écrans (moins de 480px) */
-@media (max-width: 480px) {
-    .photo {
-        gap: 1.2vw;
-    }
-
-    .pid {
-        width: 20vw;
-    }
-
-    h2 {
-        font-size: 2.8vw;
-    }
-
-    .pres p,
-    .pres li {
-        font-size: 2.2vw;
-    }
-
-    .pres {
-        padding: 1vw;
-        margin: 0.8vw 0;
-    }
-}

@@ -218,10 +218,6 @@ footer {
 
 /* Petites tablettes et paysage mobile (600px à 768px) */
 @media (max-width: 768px) {
-    header {
-        height: 13vw;
-    }
-
     header h1 {
         font-size: 3.5vw;
     }
@@ -251,9 +247,6 @@ footer {
 
 /* Petits mobiles (480px à 600px) */
 @media (max-width: 600px) {
-    header {
-        height: 11vw;
-    }
 
     header h1 {
         font-size: 3vw;
@@ -284,9 +277,6 @@ footer {
 
 /* Très petits écrans (moins de 480px) */
 @media (max-width: 480px) {
-    header {
-        height: 9vw;
-    }
 
     header h1 {
         font-size: 2.5vw;
