@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'kastroz';
+    src: url(font/Kastroz-0v5G9.otf);
+}
+
+@font-face {
+    font-family: 'yanone';
+    src: url(font/YanoneKaffeesatz-VariableFont_wght.ttf)
+}
+
+:root {
+    --backolor: #701a1acc;
+    --fontitre: 'kastroz';
+    --coltitre: #f4e4c1;
+    --fontext: 'yanone';
+}

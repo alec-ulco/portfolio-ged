@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Kastroz';
-    src: url(font/Kastroz-0v5G9.otf);
-}
-
 @keyframes ember-animation {
     0% {
         opacity: 0;
@@ -60,7 +55,7 @@ header::before {
 header h1 {
     z-index: 1;
     text-align: center;
-    font-family: 'Kastroz';
+    font-family: var(--fontitre);
     font-size: 5vw;
     background: linear-gradient(to right, #d3d3d3, #e6e6e6, #c0bfbf);
     background-clip: text;
@@ -83,7 +78,7 @@ header h1 {
 
 .lien a {
     text-decoration: none;
-    font-family: 'Kastroz';
+    font-family: var(--fontitre);
     font-size: 2.5vw;
     background: linear-gradient(to right, #ffd700, #ffb900, #ff8c00);
     background-clip: text;
@@ -109,7 +104,6 @@ body::before {
     background-image: url(images/bglloyd.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #701a1acc;
     filter: blur(6px);
     margin: 0;
 }
@@ -143,18 +137,22 @@ footer {
 }
 
 /* Conteneur pour le contenu du footer */
-footer .conteneur-footer {
+.conteneur-footer {
     position: relative;
     z-index: 2;
     /* S'assure que le contenu est au-dessus de la forme */
     padding: 2vw 0;
+    background-image: none;
+    background-position: center;
+    justify-content: center;
+    width: auto;
 }
 
 /* Style pour le lien "va la-haut" */
 .top {
     display: inline-block;
     /* Nécessaire pour l'animation */
-    font-family: 'Kastroz', sans-serif;
+    font-family: var(--fontitre);
     font-size: 1.8vw;
     text-decoration: none;
     background: linear-gradient(to right, #ffd700, #ffb900, #ff8c00);
@@ -172,4 +170,147 @@ footer .conteneur-footer {
     transform: translateY(-5px) scale(1.05);
     border-color: #ffd700;
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* Tablettes et écrans moyens (1200px et plus) */
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 4.5vw;
+    }
+
+    .lien a {
+        font-size: 2.2vw;
+    }
+
+    .lien {
+        margin: 0 1.5vw;
+    }
+}
+
+/* Tablettes (768px à 1024px) */
+@media (max-width: 1024px) {
+    header {
+        height: 15vw;
+    }
+
+    header h1 {
+        font-size: 4vw;
+    }
+
+    .navi {
+        word-spacing: 2.5vw;
+    }
+
+    .lien a {
+        font-size: 2vw;
+    }
+
+    .lien {
+        margin: 0 1.2vw;
+    }
+
+    .top {
+        font-size: 1.6vw;
+    }
+}
+
+/* Petites tablettes et paysage mobile (600px à 768px) */
+@media (max-width: 768px) {
+    header {
+        height: 13vw;
+    }
+
+    header h1 {
+        font-size: 3.5vw;
+    }
+
+    .navi {
+        word-spacing: 2vw;
+    }
+
+    .lien a {
+        font-size: 1.8vw;
+    }
+
+    .lien {
+        margin: 0 1vw;
+    }
+
+    footer {
+        padding-top: 3vw;
+        margin-top: 3vw;
+        font-size: 1rem;
+    }
+
+    .top {
+        font-size: 1.4vw;
+    }
+}
+
+/* Petits mobiles (480px à 600px) */
+@media (max-width: 600px) {
+    header {
+        height: 11vw;
+    }
+
+    header h1 {
+        font-size: 3vw;
+    }
+
+    .navi {
+        word-spacing: 1.5vw;
+    }
+
+    .lien a {
+        font-size: 1.5vw;
+    }
+
+    .lien {
+        margin: 0 0.8vw;
+    }
+
+    footer {
+        padding-top: 2.5vw;
+        margin-top: 2.5vw;
+        font-size: 0.9rem;
+    }
+
+    .top {
+        font-size: 1.2vw;
+    }
+}
+
+/* Très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+    header {
+        height: 9vw;
+    }
+
+    header h1 {
+        font-size: 2.5vw;
+    }
+
+    .navi {
+        word-spacing: 1vw;
+    }
+
+    .lien a {
+        font-size: 1.3vw;
+    }
+
+    .lien {
+        margin: 0 0.5vw;
+    }
+
+    footer {
+        padding-top: 2vw;
+        margin-top: 2vw;
+        font-size: 0.8rem;
+    }
+
+    .top {
+        font-size: 1vw;
+    }
 }

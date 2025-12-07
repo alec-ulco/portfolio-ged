@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Kastroz';
-    src: url(font/Kastroz-0v5G9.otf);
-}
-
 @keyframes fade-in-up {
     from {
         opacity: 0;
@@ -66,7 +61,7 @@
 
 main h1,
 main h2 {
-    font-family: 'Kastroz';
+    font-family: var(--fontitre);
     /* Change la police pour tous les titres du main */
 }
 
@@ -218,7 +213,7 @@ main h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #701a1acc;
+    background-color: var(--backolor);
     /* Votre couleur de fond */
     border-radius: 6px;
     z-index: 1;
@@ -278,6 +273,23 @@ main h1 {
         grid-template-columns: repeat(3, 1fr);
         /* 3 éléments par ligne */
     }
+
+    .elem {
+        grid-template-columns: 12vw 1fr;
+    }
+
+    .elem img {
+        max-height: 20vw;
+    }
+
+    .elem h2 {
+        font-size: 1.8em;
+    }
+
+    .elem:hover p {
+        width: 16vw;
+        max-height: 20vw;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -285,11 +297,63 @@ main h1 {
         grid-template-columns: repeat(2, 1fr);
         /* 2 éléments par ligne */
     }
+
+    .elem {
+        grid-template-columns: 16vw 1fr;
+    }
+
+    .elem img {
+        max-height: 25vw;
+    }
+
+    .elem h2 {
+        font-size: 1.8em;
+    }
+
+    .elem p {
+        font-size: 1.2em;
+    }
+
+    .elem:hover p {
+        width: 20vw;
+        max-height: 25vw;
+        font-size: 1.2em;
+    }
 }
 
 @media (max-width: 600px) {
     .projets {
         grid-template-columns: 1fr;
         /* 1 élément par ligne */
+    }
+
+    .elem {
+        grid-template-columns: 20vw 1fr;
+        margin-right: 0;
+    }
+
+    .elem img {
+        max-height: 28vw;
+    }
+
+    .elem h2,
+    .elem p,
+    .elem figcaption {
+        left: 20vw;
+    }
+
+    .elem h2 {
+        font-size: 1.6em;
+    }
+
+    .elem p {
+        font-size: 1.3em;
+        max-height: 28vw;
+    }
+
+    .elem:hover p {
+        width: 60vw;
+        max-height: 28vw;
+        font-size: 1.3em;
     }
 }

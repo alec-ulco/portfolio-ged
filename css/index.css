@@ -1,23 +1,20 @@
-img {
-    border-radius: 50%;
-}
-
-/* Les deux images côte à côte */
 .photo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 2vw;
+    /* 20px en responsive */
 }
 
-/* Style des figures individuelles */
+
 .pid {
     display: flex;
+    width: 12vw;
     flex-direction: column;
     align-items: center;
-    max-width: 300px;
-    /* Ajustez selon vos besoins */
+    max-width: 100%;
+
 }
 
 .pid figcaption {
@@ -26,18 +23,215 @@ img {
 
 .pid img {
     display: block;
-    width: 10vw;
-    height: 15vw;
-    border: 12px solid #d4c19c;
-    /* couleur cadre bois clair */
-    box-shadow: 0 0 0 4px #8a6f4d,
-        /* bord intérieur plus foncé */
-        0 8px 20px rgba(0, 0, 0, 0.3);
-    /* ombre pour effet tableau */
-    border-radius: 4px;
-    /* léger arrondi comme un cadre */
+    width: 100%;
+    height: 100%;
+    border: 0.4vw solid #d4c19c;
+    /* 12px en vw */
+    box-shadow: 0 0 0 0.2vw #8a6f4d,
+        0 0.3vw 2vw rgba(0, 0, 0, 0.3);
+    /* 4px et 8px et 20px en vw */
+    border-radius: 0.4vw;
+    /* 4px en vw */
 }
 
-ul {
-    list-style-type: "";
+.selec {
+    list-style: none;
+    /* Supprime le list-style natif pour éviter la duplication */
+}
+
+.selec li {
+    display: flex;
+    align-items: center;
+    /* Aligne le bullet et le texte horizontalement */
+}
+
+.selec li::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(images/ullloyd.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+    /* Empêche le bullet de rétrécir */
+    animation: rotateBullet 3s infinite steps(1);
+    /* steps(8) pour afficher l'animation image par image */
+    transform-origin: center center;
+}
+
+@keyframes rotateBullet {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-40deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(40deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.pres {
+    background-image: url(images/windowopa.png);
+    background-size: 97% 97%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3vw;
+    /* 40px en vw */
+    margin: 2vw 0;
+    /* 20px en vw */
+    width: fit-content;
+}
+
+h2 {
+    font-family: var(--fontitre);
+    color: var(--coltitre);
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
+    font-size: 3vw;
+}
+
+.selec li h3 {
+    font-family: var(--fontitre);
+    color: #b19f79;
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
+    margin: 0 0
+}
+
+.pres p,
+.pres li {
+    font-size: 1.8vw;
+    /* 36px en vw */
+    line-height: 1.4;
+    color: rgb(255, 255, 255);
+    font-family: var(--fontext);
+    text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.7);
+}
+
+.pres h2,
+.pres h3,
+.pres .selec,
+.pres p {
+    max-width: 90%;
+    justify-content: left;
+    margin: 0 auto;
+
+
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* Tablettes (1024px et moins) */
+@media (max-width: 1024px) {
+    .photo {
+        gap: 1.5vw;
+    }
+
+    .pid {
+        width: 14vw;
+    }
+
+    h2 {
+        font-size: 2.8vw;
+    }
+
+    .selec li h3 {
+        margin: 0 0;
+    }
+
+    .pres p,
+    .pres li {
+        font-size: 1.8vw;
+    }
+
+    .pres {
+        padding: 2.5vw;
+        margin: 1.5vw 0;
+    }
+}
+
+/* Tablettes (768px à 1024px) */
+@media (max-width: 768px) {
+    .photo {
+        gap: 1.5vw;
+    }
+
+    .pid {
+        width: 16vw;
+    }
+
+    h2 {
+        font-size: 2.8vw;
+    }
+
+    .pres p,
+    .pres li {
+        font-size: 1.9vw;
+    }
+
+    .pres {
+        padding: 2vw;
+        margin: 1.2vw 0;
+    }
+}
+
+/* Petits écrans (600px à 768px) */
+@media (max-width: 600px) {
+    .photo {
+        gap: 1.3vw;
+    }
+
+    .pid {
+        width: 18vw;
+    }
+
+    h2 {
+        font-size: 2.8vw;
+    }
+
+    .pres p,
+    .pres li {
+        font-size: 2vw;
+    }
+
+    .pres {
+        padding: 1.5vw;
+        margin: 1vw 0;
+    }
+}
+
+/* Très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+    .photo {
+        gap: 1.2vw;
+    }
+
+    .pid {
+        width: 20vw;
+    }
+
+    h2 {
+        font-size: 2.8vw;
+    }
+
+    .pres p,
+    .pres li {
+        font-size: 2.2vw;
+    }
+
+    .pres {
+        padding: 1vw;
+        margin: 0.8vw 0;
+    }
 }
