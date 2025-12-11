@@ -1,45 +1,3 @@
-h2 {
-    font-family: var(--fontitre);
-    color: var(--coltitre);
-    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
-    font-size: 4vw;
-    text-align: center;
-}
-
-figure {
-    text-align: center;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10%;
-}
-
-.selec {
-    list-style: none;
-
-}
-
-.selec li {
-    display: flex;
-    align-items: center;
-}
-
-.selec li::before {
-    content: "";
-    display: inline-block;
-    width: 3em;
-    height: 3em;
-    background-image: url(images/ullloyd.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 0.5em;
-    flex-shrink: 0;
-    animation: rotateBullet 3s infinite ease-in-out;
-    transform-origin: center center;
-}
-
 @keyframes rotateBullet {
     0% {
         transform: rotate(0deg);
@@ -62,6 +20,42 @@ img {
     }
 }
 
+main {
+
+    background-image: url(images/windowopa.png);
+    background-size: 97% 97%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3vw;
+    margin: 2vw 0;
+    width: fit-content;
+    margin: 5% 20%;
+}
+
+main article {
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+figure {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10%;
+}
+
+h2 {
+    font-family: var(--fontitre);
+    color: var(--coltitre);
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
+    font-size: 4vw;
+    text-align: center;
+}
+
 h3 {
     font-family: var(--fontitre);
     color: var(--coltitresec);
@@ -72,34 +66,32 @@ h3 {
 
 p {
     font-size: 1.8vw;
-    /* 36px en vw */
     line-height: 1.4;
     color: rgb(255, 255, 255);
     font-family: var(--fontext);
     text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.7);
 }
 
-main {
 
-    background-image: url(images/windowopa.png);
-    background-size: 97% 97%;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 3vw;
-    margin: 2vw 0;
+.selec {
+    list-style: none;
 
-    width: fit-content;
-
-    /* background-color: var(--backolor);
-    border-radius: 8px;
-    min-height: 480px;
-    padding: 24px 36px;
-    position: relative; */
-    margin: 5% 20%;
 }
 
-main article {
-    justify-content: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
+.selec li::before {
+    content: "";
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    background-image: url(images/ullloyd.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5em;
+    animation: rotateBullet 3s infinite ease-in-out;
+    transform-origin: center center;
+}
+
+.selec li {
+    display: flex;
+    align-items: center;
 }

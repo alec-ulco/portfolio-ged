@@ -1,64 +1,18 @@
-.photo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2vw;
-    /* 20px en responsive */
-}
+@keyframes splashFadeOut {
+    0% {
+        opacity: 1;
+        z-index: 10;
+    }
 
+    70% {
+        opacity: 1;
+        z-index: 10;
+    }
 
-.pid {
-    display: flex;
-    width: 12vw;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-
-}
-
-.pid figcaption {
-    display: none;
-}
-
-.pid img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0.4vw solid #d4c19c;
-    /* 12px en vw */
-    box-shadow: 0 0 0 0.2vw #8a6f4d,
-        0 0.3vw 2vw rgba(0, 0, 0, 0.3);
-    /* 4px et 8px et 20px en vw */
-    border-radius: 0.4vw;
-    /* 4px en vw */
-}
-
-.selec {
-    list-style: none;
-    /* Supprime le list-style natif pour éviter la duplication */
-}
-
-.selec li {
-    display: flex;
-    align-items: center;
-    /* Aligne le bullet et le texte horizontalement */
-}
-
-.selec li::before {
-    content: "";
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    background-image: url(images/ullloyd.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 0.5em;
-    flex-shrink: 0;
-    /* Empêche le bullet de rétrécir */
-    animation: rotateBullet 3s infinite steps(1);
-    /* steps(8) pour afficher l'animation image par image */
-    transform-origin: center center;
+    100% {
+        opacity: 0;
+        z-index: -5;
+    }
 }
 
 @keyframes rotateBullet {
@@ -83,6 +37,54 @@
     }
 }
 
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/surprise.jpeg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 10;
+    animation: splashFadeOut 1s ease-out forwards;
+}
+
+.photo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
+.pid {
+    display: flex;
+    width: 12vw;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+
+}
+
+.pid figcaption {
+    display: none;
+}
+
+.pid img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0.4vw solid #d4c19c;
+    box-shadow: 0 0 0 0.2vw #8a6f4d,
+        0 0.3vw 2vw rgba(0, 0, 0, 0.3);
+    border-radius: 0.4vw;
+
+}
+
 .pres {
     background-image: url(images/windowopa.png);
     background-size: 97% 97%;
@@ -93,20 +95,6 @@
     margin: 2vw 0;
     /* 20px en vw */
     width: fit-content;
-}
-
-h2 {
-    font-family: var(--fontitre);
-    color: var(--coltitre);
-    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
-    font-size: 3vw;
-}
-
-.selec li h3 {
-    font-family: var(--fontitre);
-    color: var(--coltitresec);
-    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
-    margin: 0 0;
 }
 
 .pres p,
@@ -130,4 +118,40 @@ h2 {
 
 }
 
-/* ==================== MEDIA QUERIES ==================== */
+.pres h2 {
+    font-family: var(--fontitre);
+    color: var(--coltitre);
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
+    font-size: 3vw;
+}
+
+.selec li::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(images/ullloyd.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+    animation: rotateBullet 3s infinite steps(1);
+    transform-origin: center center;
+}
+
+.selec {
+    list-style: none;
+
+}
+
+.selec li {
+    display: flex;
+    align-items: center;
+}
+
+.selec li h3 {
+    font-family: var(--fontitre);
+    color: var(--coltitresec);
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.8);
+    margin: 0 0;
+}

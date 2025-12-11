@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/variables.css">
+
+    <audio id="splash-sound" preload="auto">
+        <source src="sounds/surprise.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('splash-sound');
+
+        function playAudio() {
+            if (audio) {
+                audio.volume = 1;
+                audio.currentTime = 0;
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function (error) {
+                        console.log('Audio play failed:', error);
+                    });
+                }
+            }
+        }
+
+        // Jouer au DOMContentLoaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', playAudio);
+        } else {
+            playAudio();
+        }
+    </script>
 </head>
 
 <body>

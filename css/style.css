@@ -18,30 +18,24 @@
     }
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-image: url(images/bglloyd.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(6px);
+    margin: 0;
+}
+
 body {
     margin: 0;
 }
 
-header {
-
-    position: relative;
-    /* On augmente la hauteur pour laisser de la place à la transition */
-    height: 17vw;
-    /* Ajustez cette valeur si votre header est plus ou moins haut */
-
-    /* On garde le fond noir, mais on le rend un peu plus court pour laisser de l'espace en bas */
-    background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0)70%, rgb(61, 4, 4) 97%, rgba(0, 0, 0, 0) 100%);
-
-    overflow: hidden;
-    /* Garder overflow hidden pour couper ce qui dépasse */
-}
-
-
-header .conteneur-titre {
-    position: relative;
-    z-index: 1;
-}
-
+/*#######################"header####################*/
 header::before {
     content: '';
     position: absolute;
@@ -50,6 +44,20 @@ header::before {
     background: radial-gradient(circle, rgba(128, 9, 9, 0.5)0%, rgba(255, 69, 0, 0)50%);
     animation: ember-animation 2s infinite linear;
     z-index: 0;
+}
+
+header {
+
+    position: relative;
+    height: 17vw;
+    background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0)70%, rgb(61, 4, 4) 97%, rgba(0, 0, 0, 0) 100%);
+    overflow: hidden;
+
+}
+
+header .conteneur-titre {
+    position: relative;
+    z-index: 1;
 }
 
 header h1 {
@@ -72,6 +80,11 @@ header h1 {
     list-style: "";
 }
 
+.lien {
+    z-index: 1;
+    margin: 0 2vw;
+}
+
 .lien:hover {
     animation: saut 2s infinite linear;
 }
@@ -89,25 +102,7 @@ header h1 {
 
 }
 
-.lien {
-    z-index: 1;
-    margin: 0 2vw;
-}
-
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-attachment: fixed;
-    background-image: url(images/bglloyd.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(6px);
-    margin: 0;
-}
-
+/*#######################"footer####################*/
 footer {
     background-color: transparent;
 }
@@ -123,20 +118,11 @@ footer {
     text-align: center;
     color: #c0bfbf;
     font-size: 1.2rem;
-    overflow: hidden;
-
-    /* 1. Dégradé et position de départ */
-    background-image: linear-gradient(to top, rgb(0, 0, 0) 0%, rgb(0, 0, 0)70%, rgb(61, 4, 4) 97%, rgba(0, 0, 0, 0) 100%);
-    background-size: 100% 300%;
-    /* On garde une taille 3x plus grande */
-    background-position: 50% 0%;
-    /* Position de départ : le haut du dégradé est visible */
-
-    /* 2. La transition pour un mouvement fluide */
+    background-image: linear-gradient(to top, rgb(0, 0, 0) 0%, rgb(0, 0, 0)40%, rgb(61, 4, 4) 97%, rgba(0, 0, 0, 0) 100%);
     transition: background-position 0.8s ease-in-out;
 }
 
-/* Conteneur pour le contenu du footer */
+
 .conteneur-footer {
     position: relative;
     z-index: 2;
@@ -148,7 +134,7 @@ footer {
     width: auto;
 }
 
-/* Style pour le lien "va la-haut" */
+
 .top {
     display: inline-block;
     /* Nécessaire pour l'animation */
@@ -165,7 +151,7 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Animation au survol du lien */
+
 .top:hover {
     transform: translateY(-5px) scale(1.05);
     border-color: #ffd700;

@@ -55,14 +55,10 @@
     }
 }
 
-.projets {
-    animation: apparition 1.5s ease-out;
-}
 
 main h1,
 main h2 {
     font-family: var(--fontitre);
-    /* Change la police pour tous les titres du main */
 }
 
 main h1 {
@@ -71,132 +67,116 @@ main h1 {
     margin: 2vw 0 3vw 0;
     letter-spacing: 2px;
     color: transparent;
-    /* Le remplissage est transparent au départ */
     -webkit-text-stroke: 1.5px #a0a0a0;
-    /* Contour gris */
     text-shadow: none;
-    /* Pas d'ombre pour l'instant */
-
-    /* 2. L'animation de construction */
     animation: constructTitle 2.5s ease-out forwards;
 }
 
+/*#######################    ul    ###################*/
 .projets {
     list-style: none;
-    /* retire les puces de la liste */
     margin: 0;
-    /* annule la marge par défaut */
     padding: 0;
-    /* annule le padding par défaut */
     display: grid;
-    /* utilise une grille pour disposer les vignettes */
     grid-template-columns: repeat(4, 1fr);
-    /* 4 éléments par ligne par défaut */
-    gap: 1px;
-    /* espace entre les cartes */
+    gap: clamp(1px, 0.1vw, 5px);
     align-items: start;
+    animation: apparition 1.5s ease-out;
 }
 
+/*#######################    li     ###################*/
+.elem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--backolor);
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.elem:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
 
 .elem {
     display: grid;
-    /* grille interne pour image et texte */
     grid-template-areas: "fig h2" "fig p";
     grid-template-columns: 15vw 1fr;
-    /* image à gauche (15vw), texte à droite flexible */
+    grid-auto-rows: auto;
     align-items: start;
-    /* aligne le contenu en haut */
-    gap: 10px;
-    /* espace entre image et texte */
     background: transparent;
-    /* pas de fond ajouté */
     padding: 4px;
-    /* petit espacement interne */
     position: relative;
-    /* nécessaire pour le positionnement absolu des éléments superposés */
     align-self: start;
-    margin-right: 10%;
-    /* 10% de marge à droite */
+    margin-right: 0%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    ;
 }
 
 .elem figure {
     margin: 0;
     grid-area: fig;
-    /* annule la marge par défaut de la figure */
     z-index: 1;
 }
 
 .elem img {
     width: 100%;
-    /* remplit la colonne image */
     height: auto;
-    /* hauteur automatique */
     max-height: 25vw;
-    /* limite cohérente */
     object-fit: contain;
-    /* recadre proprement l'image */
     display: block;
-    /* évite espace blanc sous l'image */
     border-radius: 4px;
-    /* arrondit légèrement l'image */
 }
 
-/* Titre à droite de l'image */
 .elem h2 {
     margin: 0;
-    /* annule marges par défaut */
     grid-column: 2;
-    /* place le titre dans la colonne de droite */
     align-self: start;
-    /* aligne le titre en haut de la colonne */
     font-size: 2em;
-    /* taille du titre relative au carré */
     padding: 0;
     background: transparent;
     grid-area: h2;
-
-}
-
-.elem h2 a {
-    text-decoration: none;
     color: #f4e4c1;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.6),
         0 0 15px rgba(244, 228, 193, 0.3);
 }
 
-.elem h2 a:hover {
-    text-decoration: underline;
+.elem a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .elem h2,
 .elem p,
 .elem figcaption {
     display: none;
-    /* cachés par défaut */
     position: absolute;
-    /* se positionnent sur la colonne 1 (image) */
     top: 0;
     left: 15vw;
-    /* aligned avec le début de la colonne 1 */
     right: 0;
-    /* occupe la largeur restante */
     background: transparent;
-    /* fond semi-transparent */
     padding: 8px;
-    /* espace interne */
     z-index: -4;
-    /* au-dessous de l'image */
     max-height: 100%;
 }
 
 .elem:hover h2,
 .elem:hover p {
     display: block;
-    /* révèle les éléments au hover */
-
     position: relative;
     z-index: 2;
     left: auto;
@@ -208,71 +188,25 @@ main h1 {
 
 }
 
-.elem::before {
-    content: '';
-    /* Obligatoire pour que le pseudo-élément existe */
-    position: absolute;
-    /* Se positionne par rapport à .elem */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--backolor);
-    /* Votre couleur de fond */
-    border-radius: 6px;
-    z-index: 1;
-    /* Se place derrière le contenu mais devant le fond de .elem */
-    opacity: 0;
-    /* Invisible par défaut */
-    transform: scaleX(0);
-    /* Réduit à 0 sur l'axe X pour l'effet d'ouverture */
-    transform-origin: left center;
-    /* L'animation part de la gauche */
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    /* Animation fluide */
-}
-
-.elem:hover::before {
-    opacity: 1;
-    /* Le fond devient visible */
-    transform: scaleX(1);
-    /* Le fond s'ouvre à sa taille normale */
-}
-
-.projets:has(.elem:hover) {
-    margin-right: 0;
-    /* retire la marge quand un élément est survolé */
-}
-
 .elem:hover p {
     width: 18vw;
-    /* largeur du texte au hover (un peu plus grand que l'image 15vw) */
     max-height: 25vw;
-    /* hauteur proportionnelle au carré */
 }
 
-/* Texte descriptif à droite de l'image */
 .elem p {
     margin: 0;
-    /* supprime l'espace entre le titre et le paragraphe */
     grid-column: 2;
-    /* place le paragraphe dans la colonne de droite */
     font-family: var(--fontext);
     color: #ffffff;
-    /* couleur du texte (ajustable) */
     line-height: 1.4;
-    /* lisibilité */
     font-size: 1em;
-    /* taille du texte relative au carré */
     max-height: 20vw;
-    /* limite la hauteur du texte au carré */
     overflow: auto;
-    /* permet le scroll si le texte est plus long */
     background: transparent;
     grid-area: p;
 }
 
-/* Media queries pour adapter le nombre d'éléments par ligne */
+/* =========================Media queries===================== */
 @media (max-width: 1400px) {
     .projets {
         grid-template-columns: repeat(3, 1fr);
