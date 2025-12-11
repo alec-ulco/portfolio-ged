@@ -149,7 +149,7 @@ main h1 {
         0 0 15px rgba(244, 228, 193, 0.3);
 }
 
-.elem a {
+.elem:hover a {
     position: absolute;
     top: 0;
     left: 0;
