@@ -139,7 +139,7 @@ main h1 {
     margin: 0;
     grid-column: 2;
     align-self: start;
-    font-size: 2em;
+    font-size: 3em;
     padding: 0;
     background: transparent;
     grid-area: h2;
@@ -147,6 +147,10 @@ main h1 {
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.6),
         0 0 15px rgba(244, 228, 193, 0.3);
+}
+
+.elem a {
+    z-index: -10;
 }
 
 .elem:hover a {
@@ -199,7 +203,7 @@ main h1 {
     font-family: var(--fontext);
     color: #ffffff;
     line-height: 1.4;
-    font-size: 1em;
+    font-size: 1.5em;
     max-height: 20vw;
     overflow: auto;
     background: transparent;
